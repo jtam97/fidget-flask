@@ -1,0 +1,122 @@
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.flask-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 2rem 0;
+}
+
+.flask-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.flask {
+    width: 102px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.flask-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 300% 100%; /* Since image has 3 parts */
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.flask-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 300% 100%;
+    background-repeat: no-repeat;
+    z-index: 1;
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 0.1s linear;
+}
+
+.flask.active {
+    animation: useFlask 0.5s linear;
+}
+
+@keyframes useFlask {
+    0% {
+        background: linear-gradient(to bottom, #4a90e2 50%, transparent 50%);
+    }
+    100% {
+        background: linear-gradient(to bottom, #4a90e2 0%, transparent 0%);
+    }
+}
+
+.instructions {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+.charges {
+    position: absolute;
+    bottom: -20px;
+    color: #4a90e2;
+    font-size: 14px;
+}
+
+.duration-bar {
+    width: 100%;
+    height: 4px;
+    background: #2ecc71;
+    position: absolute;
+    top: -8px;
+    transform: scaleX(0);
+    transform-origin: center;
+}
+
+.flask-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #4a90e2;
+    transition: height 0.1s linear;
+}
+
+.flask-selector {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #666;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 12px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.flask-selector:hover {
+    background-color: #3a3a3a;
+}
